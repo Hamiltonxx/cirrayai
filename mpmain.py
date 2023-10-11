@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import uvicorn
 
 app = FastAPI()
 app.add_middleware(
@@ -20,4 +21,7 @@ async def mp_callback(echostr=None):
         # return q.get("echostr")
         return echostr
     return "No q"
+
+if __name__ == '__main__':
+    uvicorn.run("mpmain:app", host="0.0.0.0", port=8000)
     
