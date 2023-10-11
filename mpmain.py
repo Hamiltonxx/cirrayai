@@ -6,7 +6,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+#    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -15,8 +15,8 @@ app.add_middleware(
 def main():
     return {"message":"Hello World!"}
 
-@app.get("/mp/callback")
-async def mp_callback(echostr=None):
+@app.get("/echocallback")
+async def echocallback(echostr=None):
     if echostr:
         # return q.get("echostr")
         return echostr
