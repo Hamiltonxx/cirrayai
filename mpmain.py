@@ -17,6 +17,7 @@ def main():
 
 @app.get("/echocallback")
 async def echocallback(echostr=None):
+    print("收到的echostr",echostr)
     if echostr:
         # return q.get("echostr")
         return echostr
